@@ -7,10 +7,13 @@ if __name__ == '__main__':
 
     G = graph.getGraph()
 
+    graph.walkNodes()
+    graph.walkEdges()
+
     ## Node level attributes
     NodeA = NodeA.NodeAttribute(G)
 
-    NId = 100
+    NId = G.GetRndNId()
     ##### init node attributes
     attribute_type = 1
     attribute_name = "Age"
@@ -48,7 +51,7 @@ if __name__ == '__main__':
     ## Edge level attributes
     EdgeA = EdgeA.EdgeAttribute(G)
 
-    EId = 450
+    EId = G.GetRndEId()
     ##### init node attributes
     attribute_type = 1
     attribute_name = "Timestamp"

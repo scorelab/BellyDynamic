@@ -8,4 +8,4 @@ BellyDynamic: A scalable data structure to handle online and offline dynamic gra
 
 ## How to run:
 - Install [snap] graph mining library (http://snap.stanford.edu/).
-- Test run: ``` python -_init__.py ```, with default parameters
+- Test run: ``` python __init__.py ```, with default parameters
