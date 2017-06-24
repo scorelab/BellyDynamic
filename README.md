@@ -1,5 +1,6 @@
-# BellyDynamic
+# BellyDynamic [![Build Status](https://travis-ci.org/SamTube405/BellyDynamic.svg?branch=master)](https://travis-ci.org/SamTube405/BellyDynamic)
 BellyDynamic: A scalable data structure to handle online and offline dynamic graph objects
+
 
 ## Features:
 - [x] Multi-graphs with user-defined attribute schema for nodes and edges

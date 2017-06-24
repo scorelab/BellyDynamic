@@ -1,10 +1,11 @@
 import snap
 
-class NodeAttribute:
-    def __init__(self,G):
-        self.G=G
 
-    def initNodeAttribute(self,attribute_type, attribute_name, attribute_default_value):
+class NodeAttribute:
+    def __init__(self, G):
+        self.G = G
+
+    def initNodeAttribute(self, attribute_type, attribute_name, attribute_default_value):
         if attribute_type == 1:
             self.G.AddIntAttrN(attribute_name, attribute_default_value)
         elif attribute_type == 2:
@@ -12,7 +13,7 @@ class NodeAttribute:
         elif attribute_type == 3:
             self.G.AddStrAttrN(attribute_name, attribute_default_value)
 
-    def setNodeAttribute(self,nodeId, attribute_type, attribute_name, attribute_value):
+    def setNodeAttribute(self, nodeId, attribute_type, attribute_name, attribute_value):
         if attribute_type == 1:
             self.G.AddIntAttrDatN(nodeId, attribute_value, attribute_name)
         elif attribute_type == 2:
@@ -54,4 +55,4 @@ class NodeAttribute:
         AttrLen = NIdAttrValue.Len()
 
         for i in range(AttrLen):
-            print "Vertical Node: %i, Attr: %s, Val: %s" % (NId, NIdAttrName.GetI(i)(),NIdAttrValue.GetI(i)())
+            print "Vertical Node: %i, Attr: %s, Val: %s" % (NId, NIdAttrName.GetI(i)(), NIdAttrValue.GetI(i)())

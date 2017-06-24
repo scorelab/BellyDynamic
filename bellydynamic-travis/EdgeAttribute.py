@@ -1,10 +1,11 @@
 import snap
 
-class EdgeAttribute:
-    def __init__(self,G):
-        self.G=G
 
-    def initEdgeAttribute(self,attribute_type, attribute_name, attribute_default_value):
+class EdgeAttribute:
+    def __init__(self, G):
+        self.G = G
+
+    def initEdgeAttribute(self, attribute_type, attribute_name, attribute_default_value):
         if attribute_type == 1:
             self.G.AddIntAttrE(attribute_name, attribute_default_value)
         elif attribute_type == 2:
@@ -12,7 +13,7 @@ class EdgeAttribute:
         elif attribute_type == 3:
             self.G.AddStrAttrE(attribute_name, attribute_default_value)
 
-    def setEdgeAttribute(self,EdgeId, attribute_type, attribute_name, attribute_value):
+    def setEdgeAttribute(self, EdgeId, attribute_type, attribute_name, attribute_value):
         if attribute_type == 1:
             self.G.AddIntAttrDatE(EdgeId, attribute_value, attribute_name)
         elif attribute_type == 2:
@@ -54,4 +55,4 @@ class EdgeAttribute:
         AttrLen = EIdAttrValue.Len()
 
         for i in range(AttrLen):
-            print "Vertical Edge: %i, Attr: %s, Val: %s" % (EId, EIdAttrName.GetI(i)(),EIdAttrValue.GetI(i)())
+            print "Vertical Edge: %i, Attr: %s, Val: %s" % (EId, EIdAttrName.GetI(i)(), EIdAttrValue.GetI(i)())

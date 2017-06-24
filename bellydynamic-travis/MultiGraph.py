@@ -8,9 +8,10 @@ def PrintGStats(s, Graph):
         s, Graph.GetNodes(), Graph.GetEdges(),
         "yes" if Graph.Empty() else "no")
 
+
 class MultiGraph:
     def __init__(self):
-        self.G=self.getEmptyGraph()
+        self.G = self.getEmptyGraph()
 
     def getEmptyGraph(self):
         return snap.TNEANet();
@@ -22,7 +23,7 @@ class MultiGraph:
         self.G = graph
 
     def getEdgeId(self, srcId, dstId, sequenceTag):
-        return int(str(snap.TIntPr(srcId,dstId).GetPrimHashCd())+str(sequenceTag))
+        return int(str(snap.TIntPr(srcId, dstId).GetPrimHashCd()) + str(sequenceTag))
 
     def genGraph(self, nodes, edges):
         # create the nodes
@@ -33,8 +34,8 @@ class MultiGraph:
         while NCount > 0:
             x = int(random.random() * nodes)
             y = int(random.random() * nodes)
-            sequenceTag = int(random.random() * edges) # e.g. Timestamp
-            EId = self.getEdgeId(x,y,sequenceTag)
+            sequenceTag = int(random.random() * edges)  # e.g. Timestamp
+            EId = self.getEdgeId(x, y, sequenceTag)
             # skip the loops, one edge between node pair
             if x != y and not self.G.IsEdge(x, y):
                 n = self.G.AddEdge(x, y, EId)
@@ -66,5 +67,3 @@ class MultiGraph:
             print EI.GetId()
             ECount += 1
             EI.Next()
-
-
