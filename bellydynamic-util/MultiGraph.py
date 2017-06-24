@@ -15,30 +15,49 @@ class MultiGraph:
     def getEmptyGraph(self):
         return snap.TNEANet();
 
+    def loadGraph(self, graph_type, fileName, src_column, dst_column):
+        return snap.LoadEdgeList(graph_type, fileName, src_column, dst_column)
+
     def getGraph(self):
         return self.G
 
     def setGraph(self, graph):
         self.G = graph
 
-    def getEdgeId(self, srcId, dstId, sequenceTag):
-        return int(str(snap.TIntPr(srcId,dstId).GetPrimHashCd())+str(sequenceTag))
+    # def getEdgeId(self, srcId, dstId, sequenceTag):
+    #     return int(str(snap.TIntPr(srcId,dstId).GetPrimHashCd())+str(sequenceTag))
 
     def genGraph(self, nodes, edges):
         # create the nodes
         for i in range(0, nodes):
-            self.G.AddNode(i)
+            self.addNode(i)
         # create random edges
         NCount = edges
         while NCount > 0:
             x = int(random.random() * nodes)
             y = int(random.random() * nodes)
-            sequenceTag = int(random.random() * edges) # e.g. Timestamp
-            EId = self.getEdgeId(x,y,sequenceTag)
-            # skip the loops, one edge between node pair
-            if x != y and not self.G.IsEdge(x, y):
-                n = self.G.AddEdge(x, y, EId)
+            # x = int(0.5 * nodes)
+            # y = int(0.6 * nodes)
+            sequenceTag = NCount  # e.g. Timestamp
+
+            # # skip the loops, one edge between node pair
+            # if x != y and not self.G.IsEdge(x, y):
+            #     n = self.G.AddEdge(x, y, EId)
+            #     NCount -= 1
+            # skip the loops, multiple edges between node pair
+            if x != y:
+                n = self.G.AddEdge(x, y, sequenceTag)
                 NCount -= 1
+
+    def addNode(self, nId):
+        if (not self.G.IsNode(nId)):
+            self.G.AddNode(nId)
+
+    def addEdge(self, srcId, dstId, sequenceTag):
+        self.G.AddEdge(srcId, dstId, sequenceTag)
+
+    def delEdge(self, srcId, dstId):
+        self.G.DelEdge(srcId, dstId)
 
     def saveGraph(self, fileName):
         FOut = snap.TFOut(fileName)
