@@ -5,4 +5,4 @@ python:
 before_install:
   - ./install-snap-python.sh
 script:
-  - python ./bellydynamic-adv/RandomGraph.py
+  - python ./bellydynamic-util/TravisTestV1.py
