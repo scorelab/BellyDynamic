@@ -1,9 +1,19 @@
+import sys
+
+sys.path.append("../bellydynamic-util/")
+
 import MultiGraph as MG
 import NodeAttribute as NodeA
 import EdgeAttribute as EdgeA
 
 if __name__ == '__main__':
     graph = MG.MultiGraph()
+
+    graph.genGraph(nodes=101, edges=500)
+
+    graph.saveGraph("../bellydynamic-data/random.graph")
+
+    graph.loadBinaryGraph("../bellydynamic-data/random.graph")
 
     G = graph.getGraph()
 

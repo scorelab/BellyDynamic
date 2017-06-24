@@ -1,6 +1,6 @@
-import sys
-import snap
 import random
+
+import snap
 
 
 def PrintGStats(s, Graph):
@@ -11,10 +11,6 @@ def PrintGStats(s, Graph):
 class MultiGraph:
     def __init__(self):
         self.G=self.getEmptyGraph()
-        PrintGStats("TestG",self.G)
-
-        self.setGraph(nodes=101,edges=500)
-        PrintGStats("TestG", self.G)
 
     def getEmptyGraph(self):
         return snap.TNEANet();
@@ -22,10 +18,13 @@ class MultiGraph:
     def getGraph(self):
         return self.G
 
+    def setGraph(self, graph):
+        self.G = graph
+
     def getEdgeId(self, srcId, dstId, sequenceTag):
         return int(str(snap.TIntPr(srcId,dstId).GetPrimHashCd())+str(sequenceTag))
 
-    def setGraph(self,nodes,edges):
+    def genGraph(self, nodes, edges):
         # create the nodes
         for i in range(0, nodes):
             self.G.AddNode(i)
@@ -40,6 +39,15 @@ class MultiGraph:
             if x != y and not self.G.IsEdge(x, y):
                 n = self.G.AddEdge(x, y, EId)
                 NCount -= 1
+
+    def saveGraph(self, fileName):
+        FOut = snap.TFOut(fileName)
+        self.G.Save(FOut)
+        FOut.Flush()
+
+    def loadBinaryGraph(self, fileName):
+        FIn = snap.TFIn(fileName)
+        self.G = snap.TNEANet(FIn)
 
     def walkNodes(self):
         print "Nodes: "
