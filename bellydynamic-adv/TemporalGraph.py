@@ -27,19 +27,18 @@ if __name__ == '__main__':
     attribute_type = 1
     attribute_name = "timestamp"
 
-    NCount = 1
     for row in df.itertuples():
         index, src, dst, timestamp = row
+        EId = index
         srcId = int(src)
         dstId = int(dst)
         tt = int(timestamp)
         graph.addNode(srcId)
         graph.addNode(dstId)
-        graph.addEdge(srcId, dstId, NCount)
-        EdgeA.setEdgeAttribute(NCount, attribute_type, attribute_name, tt)
-        NCount += 1
+        graph.addEdge(srcId, dstId, EId)
+        EdgeA.setEdgeAttribute(EId, attribute_type, attribute_name, tt)
 
-    # graph.walkNodes()
-    # graph.walkEdges()
+    graph.walkNodes()
+    graph.walkEdges()
 
-        # EdgeA.walkGraphEdgeAttributes(attribute_type, attribute_name)
+    EdgeA.walkGraphEdgeAttributes(attribute_type, attribute_name)
