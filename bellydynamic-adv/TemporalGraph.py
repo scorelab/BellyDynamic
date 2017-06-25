@@ -2,7 +2,6 @@ import sys
 
 sys.path.append("../bellydynamic-util/")
 
-import csv_io
 import pandas as pd
 
 import MultiGraph as MG
@@ -22,9 +21,7 @@ if __name__ == '__main__':
     ## Edge level attributes
     EdgeA = EdgeA.EdgeAttribute(G)
 
-    data_matrix = csv_io.read_data(filename, " ", 0)
-
-    df = pd.DataFrame(data_matrix, columns=('src', 'dst', 'timestamp'))
+    df = pd.read_csv(filename, sep=' ')
 
     ##### init edge attributes
     attribute_type = 1
@@ -45,4 +42,4 @@ if __name__ == '__main__':
     # graph.walkNodes()
     # graph.walkEdges()
 
-    EdgeA.walkGraphEdgeAttributes(attribute_type, attribute_name)
+        # EdgeA.walkGraphEdgeAttributes(attribute_type, attribute_name)
