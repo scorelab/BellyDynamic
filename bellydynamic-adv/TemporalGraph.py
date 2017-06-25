@@ -26,10 +26,9 @@ if __name__ == '__main__':
 
     df = pd.DataFrame(data_matrix, columns=('src', 'dst', 'timestamp'))
 
-    ##### init node attributes
+    ##### init edge attributes
     attribute_type = 1
     attribute_name = "timestamp"
-    # EdgeA.initEdgeAttribute(attribute_type, attribute_name, 0)
 
     NCount = 1
     for row in df.itertuples():
