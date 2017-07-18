@@ -1,0 +1,1005 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0058)https://snap.stanford.edu/snappy/doc/reference/graphs.html -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <title>Graph and Network Classes — Snap.py 3.0 documentation</title>
+
+    <link rel="stylesheet" href="./TNEANet_documentation_files/default.css" type="text/css">
+    <link rel="stylesheet" href="./TNEANet_documentation_files/pygments.css" type="text/css">
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+
+    </script>
+    <script type="text/javascript" src="./TNEANet_documentation_files/jquery.js"></script>
+    <script type="text/javascript" src="./TNEANet_documentation_files/underscore.js"></script>
+    <script type="text/javascript" src="./TNEANet_documentation_files/doctools.js"></script>
+    <link rel="top" title="Snap.py 3.0 documentation" href="https://snap.stanford.edu/snappy/doc/index.html">
+    <link rel="up" title="Snap.py Reference Manual"
+          href="https://snap.stanford.edu/snappy/doc/reference/index-ref.html">
+    <link rel="next" title="Tables" href="https://snap.stanford.edu/snappy/doc/reference/table.html">
+    <link rel="prev" title="File Streams" href="https://snap.stanford.edu/snappy/doc/reference/streams.html">
+</head>
+<body>
+
+
+<div class="document">
+    <div class="documentwrapper">
+        <div class="bodywrapper">
+            <div class="body">
+
+                <div class="section" id="graph-and-network-classes">
+                    <h1>Graph and Network Classes<a class="headerlink"
+                                                    href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#graph-and-network-classes"
+                                                    title="Permalink to this headline">¶</a></h1>
+                    <p>Graphs and networks in SNAP are represented as undirected graphs <a class="reference internal"
+                                                                                           href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TUNGraph"
+                                                                                           title="TUNGraph"><tt
+                            class="xref py py-class docutils literal"><span class="pre">TUNGraph</span></tt></a>,
+                        directed graphs <a class="reference internal"
+                                           href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNGraph"
+                                           title="TNGraph"><tt class="xref py py-class docutils literal"><span
+                                class="pre">TNGraph</span></tt></a> and multigraphs with attributes <a
+                                class="reference internal"
+                                href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet"
+                                title="TNEANet"><tt class="xref py py-class docutils literal"><span
+                                class="pre">TNEANet</span></tt></a>.</p>
+
+                    <p><a class="reference internal"
+                          href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet" title="TNEANet"><tt
+                            class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a> methods
+                        for node and edge attributes support
+                        attributes of different types.
+                        Integer, float and string attributes are implemented.
+                        Each attribute type has its own method for a particular task.
+                        Attributes are named via string names. The sections below describe
+                        methods for dealing with node attributes first, followed by methods for
+                        edge attributes.</p>
+                    <p><a class="reference internal"
+                          href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet" title="TNEANet"><tt
+                            class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a> methods
+                        for node attributes are the following:</p>
+                    <blockquote>
+                        <div>
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AddIntAttrN(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddFltAttrN(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddStrAttrN(Attr)</tt></dt>
+                                <dd><p>Defines a new integer, float or string node attribute, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">DelAttrN(Attr)</tt></dt>
+                                <dd><p>Deletes node attribute <em>Attr</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetAttrIndN(Attr)</tt></dt>
+                                <dd><p>Returns the index of the value vector for node attribute <em>Attr</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AddIntAttrDatN(NodeI, Value, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddFltAttrDatN(NodeI, Value, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddStrAttrDatN(NodeI, Value, Attr)</tt></dt>
+                                <dd><p>Sets the value of attribute named <em>Attr</em> for the node referred to
+                                    by node iterator <em>NodeI</em> to <em>Value</em>.
+                                    <em>Value</em> is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AddIntAttrDatN(NId, Value, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddFltAttrDatN(NId, Value, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddStrAttrDatN(NId, Value, Attr)</tt></dt>
+                                <dd><p>Sets the value of attribute named <em>Attr</em> for the node with
+                                    node id <em>NId</em> to <em>Value</em>.
+                                    <em>Value</em> is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetIntAttrDatN(NodeI, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetFltAttrDatN(NodeI, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetStrAttrDatN(NodeI, Attr)</tt></dt>
+                                <dd><p>Returns the value of attribute named <em>Attr</em> for the node referred to
+                                    by node iterator <em>NodeI</em>.
+                                    Result is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetIntAttrDatN(NId, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetFltAttrDatN(NId, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetStrAttrDatN(NId, Attr)</tt></dt>
+                                <dd><p>Returns the value of attribute named <em>Attr</em> for the node with
+                                    node id <em>NId</em>.
+                                    Result is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetIntAttrIndDatN(NodeI, Index)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetFltAttrIndDatN(NodeI, Index)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetStrAttrIndDatN(NodeI, Index)</tt></dt>
+                                <dd><p>Returns the value of attribute at <em>Index</em> for the node referred to
+                                    by node iterator <em>NodeI</em>.
+                                    Result is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetIntAttrIndDatN(NId, Index)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetFltAttrIndDatN(NId, Index)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetStrAttrIndDatN(NId, Index)</tt></dt>
+                                <dd><p>Returns the value of attribute at <em>Index</em> for the node with
+                                    node id <em>NId</em>.
+                                    Result is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">BegNAIntI(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">BegNAFltI(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">BegNAStrI(Attr)</tt></dt>
+                                <dd><p>Returns an integer, float, or string attribute iterator, respectively,
+                                    of the attribute named <em>Attr</em> referring to the first node.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">EndNAIntI(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">EndNAFltI(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">EndNAStrI(Attr)</tt></dt>
+                                <dd><p>Returns an integer, float, or string attribute iterator, respectively,
+                                    of the attribute named <em>Attr</em> referring to the past-the-end node.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetNAIntI(Attr, NId)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetNAFltI(Attr, NId)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetNAStrI(Attr, NId)</tt></dt>
+                                <dd><p>Returns an integer, float, or string attribute iterator, respectively,
+                                    of the attribute named <em>Attr</em> referring to the node
+                                    with node ID <em>NId</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">DelAttrDatN(NodeI, Attr)</tt></dt>
+                                <dd><p>Deletes the value of attribute named <em>Attr</em> for the node referred to
+                                    by node iterator <em>NodeI</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">DelAttrDatN(NId, Attr)</tt></dt>
+                                <dd><p>Deletes the value of attribute named <em>Attr</em> for the node with
+                                    node ID <em>NId</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">IsAttrDeletedN(NId, Attr)</tt></dt>
+                                <dd><p>Returns true, if attribute <em>Attr</em> exists for node <em>NId</em> and
+                                    has been deleted – its value is set to default.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">IsIntAttrDeletedN(NId, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">IsFltAttrDeletedN(NId, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">IsStrAttrDeletedN(NId, Attr)</tt></dt>
+                                <dd><p>Returns true, if integer, float, or string attribute <em>Attr</em> exists
+                                    for node <em>NId</em> and has been deleted – its value is set to default.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AttrNameNI(NId, NameV)</tt></dt>
+                                <dd><p>Provides names of attributes for the node <em>NId</em>. Only attributes
+                                    with an assigned value are provided. Attribute names are returned
+                                    as strings in <em>NameV</em>, which must be of type <em>TStrV</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">IntAttrNameNI(NId, NameV)</tt></dt>
+                                <dt>
+                                    <tt class="descname">FltAttrNameNI(NId, NameV)</tt></dt>
+                                <dt>
+                                    <tt class="descname">StrAttrNameNI(NId, NameV)</tt></dt>
+                                <dd><p>Provides names of integer, float, or string attributes for the
+                                    node <em>NId</em>, respectively. Only attributes with an assigned value
+                                    are provided. Attribute names are returned as strings in <em>NameV</em>,
+                                    which must be of type <em>TStrV</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AttrValueNI(NId, ValueV)</tt></dt>
+                                <dd><p>Provides values of attributes for the node <em>NId</em>. Only attributes
+                                    with an assigned value are provided. Attribute values are converted
+                                    to strings and returned in <em>ValueV</em>, which must be of type <em>TStrV</em>.
+                                </p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">IntAttrValueNI(NId, ValueV)</tt></dt>
+                                <dt>
+                                    <tt class="descname">FltAttrValueNI(NId, ValueV)</tt></dt>
+                                <dt>
+                                    <tt class="descname">StrAttrValueNI(NId, ValueV)</tt></dt>
+                                <dd><p>Provides values of integer, float, or string attributes for the
+                                    node <em>NId</em>, respectively. Only attributes with an assigned value
+                                    are provided. Attribute values are returned as integers, floats, or
+                                    strings in <em>ValueV</em>, which must be of type <em>TIntV</em>, <em>TFltV</em>, or
+                                    <em>TStrV</em>, respectively.</p>
+                                </dd>
+                            </dl>
+
+                        </div>
+                    </blockquote>
+                    <p><a class="reference internal"
+                          href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet" title="TNEANet"><tt
+                            class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a> methods
+                        for edge attributes are the following:</p>
+                    <blockquote>
+                        <div>
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AddIntAttrE(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddFltAttrE(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddStrAttrE(Attr)</tt></dt>
+                                <dd><p>Defines a new integer, float or string edge attribute, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">DelAttrE(Attr)</tt></dt>
+                                <dd><p>Deletes edge attribute <em>Attr</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetAttrIndE(Attr)</tt></dt>
+                                <dd><p>Returns the index of the value vector for edge attribute <em>Attr</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AddIntAttrDatE(EdgeI, Value, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddFltAttrDatE(EdgeI, Value, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddStrAttrDatE(EdgeI, Value, Attr)</tt></dt>
+                                <dd><p>Sets the value of attribute named <em>Attr</em> for the edge referred to
+                                    by edge iterator <em>EdgeI</em> to <em>Value</em>.
+                                    <em>Value</em> is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AddIntAttrDatE(EId, Value, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddFltAttrDatE(EId, Value, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">AddStrAttrDatE(EId, Value, Attr)</tt></dt>
+                                <dd><p>Sets the value of attribute named <em>Attr</em> for the edge with
+                                    edge id <em>EId</em> to <em>Value</em>.
+                                    <em>Value</em> is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetIntAttrDatE(EdgeI, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetFltAttrDatE(EdgeI, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetStrAttrDatE(EdgeI, Attr)</tt></dt>
+                                <dd><p>Returns the value of attribute named <em>Attr</em> for the edge referred to
+                                    by edge iterator <em>EdgeI</em>.
+                                    Result is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetIntAttrDatE(EId, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetFltAttrDatE(EId, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetStrAttrDatE(EId, Attr)</tt></dt>
+                                <dd><p>Returns the value of attribute named <em>Attr</em> for the edge with
+                                    edge id <em>EId</em>.
+                                    Result is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetIntAttrIndDatE(EdgeI, Index)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetFltAttrIndDatE(EdgeI, Index)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetStrAttrIndDatE(EdgeI, Index)</tt></dt>
+                                <dd><p>Returns the value of attribute at <em>Index</em> for the edge referred to
+                                    by edge iterator <em>EdgeI</em>.
+                                    Result is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetIntAttrIndDatE(EId, Index)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetFltAttrIndDatE(EId, Index)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetStrAttrIndDatE(EId, Index)</tt></dt>
+                                <dd><p>Returns the value of attribute at <em>Index</em> for the edge with
+                                    edge id <em>EId</em>.
+                                    Result is an integer, a float, or a string, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">BegEAIntI(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">BegEAFltI(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">BegEAStrI(Attr)</tt></dt>
+                                <dd><p>Returns an integer, float, or string attribute iterator, respectively,
+                                    of the attribute named <em>Attr</em> referring to the first edge.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">EndEAIntI(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">EndEAFltI(Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">EndEAStrI(Attr)</tt></dt>
+                                <dd><p>Returns an integer, float, or string attribute iterator, respectively,
+                                    of the attribute named <em>Attr</em> referring to the past-the-end edge.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">GetEAIntI(Attr, EId)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetEAFltI(Attr, EId)</tt></dt>
+                                <dt>
+                                    <tt class="descname">GetEAStrI(Attr, EId)</tt></dt>
+                                <dd><p>Returns an integer, float, or string attribute iterator, respectively,
+                                    of the attribute named <em>Attr</em> referring to the edge
+                                    with edge ID <em>EId</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">DelAttrDatE(EdgeI, Attr)</tt></dt>
+                                <dd><p>Deletes the value of attribute named <em>Attr</em> for the edge referred to
+                                    by edge iterator <em>EdgeI</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">DelAttrDatE(EId, Attr)</tt></dt>
+                                <dd><p>Deletes the value of attribute named <em>Attr</em> for the edge with
+                                    edge ID <em>EId</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">IsAttrDeletedE(EId, Attr)</tt></dt>
+                                <dd><p>Returns true, if attribute <em>Attr</em> exists for edge <em>EId</em> and
+                                    has been deleted – its value is set to default.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">IsIntAttrDeletedE(EId, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">IsFltAttrDeletedE(EId, Attr)</tt></dt>
+                                <dt>
+                                    <tt class="descname">IsStrAttrDeletedE(EId, Attr)</tt></dt>
+                                <dd><p>Returns true, if integer, float, or string attribute <em>Attr</em> exists
+                                    for edge <em>EId</em> and has been deleted – its value is set to default.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AttrNameEI(EId, NameV)</tt></dt>
+                                <dd><p>Provides names of attributes for the edge <em>EId</em>. Only attributes
+                                    with an assigned value are provided. Attribute names are returned
+                                    as strings in <em>NameV</em>, which must be of type <em>TStrV</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">IntAttrNameEI(EId, NameV)</tt></dt>
+                                <dt>
+                                    <tt class="descname">FltAttrNameEI(EId, NameV)</tt></dt>
+                                <dt>
+                                    <tt class="descname">StrAttrNameEI(EId, NameV)</tt></dt>
+                                <dd><p>Provides names of integer, float, or string attributes for the
+                                    edge <em>EId</em>, respectively. Only attributes with an assigned value
+                                    are provided. Attribute names are returned as strings in <em>NameV</em>,
+                                    which must be of type <em>TStrV</em>.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AttrValueEI(EId, ValueV)</tt></dt>
+                                <dd><p>Provides values of attributes for the edge <em>EId</em>. Only attributes
+                                    with an assigned value are provided. Attribute values are converted
+                                    to strings and returned in <em>ValueV</em>, which must be of type <em>TStrV</em>.
+                                </p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">IntAttrValueEI(EId, ValueV)</tt></dt>
+                                <dt>
+                                    <tt class="descname">FltAttrValueEI(EId, ValueV)</tt></dt>
+                                <dt>
+                                    <tt class="descname">StrAttrValueEI(EId, ValueV)</tt></dt>
+                                <dd><p>Provides values of integer, float, or string attributes for the
+                                    edge <em>EId</em>, respectively. Only attributes with an assigned value
+                                    are provided. Attribute values are returned as integers, floats, or
+                                    strings in <em>ValueV</em>, which must be of type <em>TIntV</em>, <em>TFltV</em>, or
+                                    <em>TStrV</em>, respectively.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="describe">
+                                <dt>
+                                    <tt class="descname">AttrValueEI(EId, ValueV)</tt></dt>
+                                <dd><p>Provides values of attributes for the edge <em>EId</em>. Only attributes
+                                    with an assigned value are provided. Attribute values are converted
+                                    to strings and returned in <em>ValueV</em>, which must be of type <em>TStrV</em>.
+                                </p>
+                                </dd>
+                            </dl>
+
+                        </div>
+                    </blockquote>
+                </div>
+                </blockquote>
+                <p><a class="reference internal"
+                      href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet" title="TNEANet"><tt
+                        class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a> also
+                    provides methods for sparse attributes. <strong>NOTE</strong> these methods
+                    are currently under development:</p>
+                <blockquote>
+                    <div>
+                        <blockquote>
+                            <div>
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">AddSAttrDatN(NId, AttrName, Val)</tt></dt>
+                                    <dt>
+                                        <tt class="descname">AddSAttrDatN(NId, AttrId, Val)</tt></dt>
+                                    <dd><p>Adds attribute with name <em>AttrName</em> or attribtue id <em>AttrId</em>
+                                        for the given
+                                        node with id <em>NId</em>. <em>Val</em> can be an int, float, or string.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetSAttrDatN(NId, AttrName, Val)</tt></dt>
+                                    <dt>
+                                        <tt class="descname">GetSAttrDat(NId, AttrId, Val)</tt></dt>
+                                    <dd><p>Gets attribute with name <em>AttrName</em> or attribute id <em>AttrId</em>
+                                        for the given
+                                        node with id <em>NId</em>. Resulting value is stored in <em>Val</em>.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">DelSAttrDatN(NId, AttrId)</tt></dt>
+                                    <dd><p>Delete attribute with name <em>AttrName</em> or attribute id <em>AttrId</em>
+                                        for the given
+                                        node with id <em>NId</em>.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetSAttrVN(NId, AttrType, AttrV)</tt></dt>
+                                    <dd><p>Get a list of all attributes of type <em>AttrType</em> for the given node
+                                        with id <em>NId</em>.
+                                        <em>AttrType</em> should be one of IntType, FltType, or StrType. <em>AttrV</em>
+                                        stores the results -
+                                        a list of pairs, where each pair gives the attribute name and type. The type is
+                                        <tt class="xref py py-class docutils literal"><span class="pre">TAttrPrV</span></tt>.
+                                    </p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetIdVSAttrN(AttrName, IdV)</tt></dt>
+                                    <dt>
+                                        <tt class="descname">GetIdVSAttrN(AttrId, IdV)</tt></dt>
+                                    <dd><p>Get a list of all nodes that have an attribute with name <em>AttrName</em> or
+                                        id
+                                        <em>AttrId</em>.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">AddSAttrN(Name, AttrType, AttrId)</tt></dt>
+                                    <dd><p>Adds a mapping for an attribute with name <em>Name</em> and type
+                                        <em>AttrType</em>. <em>AttrId</em>
+                                        is updated with the assigned attribute integer id.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetSAttrIdN(Name, AttrId, AttrType)</tt></dt>
+                                    <dd><p>Given the node attribute name <em>Name</em>, get the attribute id.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetSAttrNameN(AttrId, Name, AttrType)</tt></dt>
+                                    <dd><p>Given the node attribute id <em>AttrId</em>, get the attribute name.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">AddSAttrDatE(EId, AttrName, Val)</tt></dt>
+                                    <dt>
+                                        <tt class="descname">AddSAttrDatE(EId, AttrId, Val)</tt></dt>
+                                    <dd><p>Adds attribute with name <em>AttrName</em> or attribtue id <em>AttrId</em>
+                                        for the given
+                                        edge with id <em>EId</em>. <em>Val</em> can be an int, float, or string.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetSAttrDatE(EId, AttrName, Val)</tt></dt>
+                                    <dt>
+                                        <tt class="descname">GetSAttrDatE(EId, AttrId, Val)</tt></dt>
+                                    <dd><p>Gets attribute with name <em>AttrName</em> or attribute id <em>AttrId</em>
+                                        for the given
+                                        edge with id <em>EId</em>. Resulting value is stored in <em>Val</em>.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">DelSAttrDat(EId, AttrId)</tt></dt>
+                                    <dd><p>Delete attribute with name <em>AttrName</em> or attribute id <em>AttrId</em>
+                                        for the given
+                                        edge with id <em>EId</em>.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetSAttrVE(EId, AttrType, AttrV)</tt></dt>
+                                    <dd><p>Get a list of all attributes of type <em>AttrType</em> for the given edge
+                                        with id <em>EId</em>.
+                                        <em>AttrType</em> should be one of IntType, FltType, or StrType. <em>AttrV</em>
+                                        stores the results -
+                                        a list of pairs, where each pair gives the attribute name and type. The type is
+                                        <tt class="xref py py-class docutils literal"><span class="pre">TAttrPrV</span></tt>.
+                                    </p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetIdVSAttrE(AttrName, IdV)</tt></dt>
+                                    <dt>
+                                        <tt class="descname">GetIdVSAttrE(AttrId, IdV)</tt></dt>
+                                    <dd><p>Get a list of all edges that have an attribute with name <em>AttrName</em> or
+                                        id
+                                        <em>AttrId</em>.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">AddSAttrE(Name, AttrType, AttrId)</tt></dt>
+                                    <dd><p>Adds a mapping for an attribute with name <em>Name</em> and type
+                                        <em>AttrType</em>. <em>AttrId</em>
+                                        is updated with the assigned attribute integer id.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetSAttrIdE(Name, AttrId, AttrType)</tt></dt>
+                                    <dd><p>Given the edge attribute name <em>Name</em>, get the attribute id.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetSAttrNameE(AttrId, Name, AttrType)</tt></dt>
+                                    <dd><p>Given the edge attribute id <em>AttrId</em>, get the attribute name.</p>
+                                    </dd>
+                                </dl>
+
+                            </div>
+                        </blockquote>
+                        <p>Below is some code demonstrating the use of the <a class="reference internal"
+                                                                              href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet"
+                                                                              title="TNEANet"><tt
+                                class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a>
+                            class:</p>
+                        <div class="highlight-python">
+                            <div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span
+                                    class="n">G3</span> <span class="o">=</span> <span class="n">snap</span><span
+                                    class="o">.</span><span class="n">TNEANet</span><span class="o">.</span><span
+                                    class="n">New</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G3</span><span class="o">.</span><span
+                                        class="n">AddNode</span><span class="p">(</span><span class="mi">1</span><span
+                                        class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G3</span><span class="o">.</span><span
+                                        class="n">AddNode</span><span class="p">(</span><span class="mi">2</span><span
+                                        class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G3</span><span class="o">.</span><span
+                                        class="n">AddNode</span><span class="p">(</span><span class="mi">5</span><span
+                                        class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G3</span><span class="o">.</span><span
+                                        class="n">AddEdge</span><span class="p">(</span><span class="mi">1</span><span
+                                        class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G3</span><span class="o">.</span><span
+                                        class="n">AddEdge</span><span class="p">(</span><span class="mi">1</span><span
+                                        class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G3</span><span class="o">.</span><span
+                                        class="n">AddEdge</span><span class="p">(</span><span class="mi">1</span><span
+                                        class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">G3</span><span class="o">.</span><span
+                                        class="n">Empty</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">G3</span><span class="o">.</span><span
+                                        class="n">GetNodes</span><span class="p">()</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">G3</span><span class="o">.</span><span
+                                        class="n">GetEdges</span><span class="p">()</span>
+<span class="go">3</span>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </blockquote>
+                </dd></dl>
+
+            </div>
+            <div class="section" id="tneanetnodei">
+                <h2>TNEANetNodeI<a class="headerlink"
+                                   href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#tneanetnodei"
+                                   title="Permalink to this headline">¶</a></h2>
+                <dl class="class">
+                    <dt id="TNEANetNodeI">
+                        <em class="property">class </em><tt class="descname">TNEANetNodeI</tt><a class="headerlink"
+                                                                                                 href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANetNodeI"
+                                                                                                 title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd><p>Returns a new node iterator for <a class="reference internal"
+                                                              href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet"
+                                                              title="TNEANet"><tt
+                            class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a>.
+                        Normally, these
+                        objects are not created directly,
+                        but obtained via a call to the network class <a class="reference internal"
+                                                                        href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet"
+                                                                        title="TNEANet"><tt
+                                class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a>
+                        method,
+                        such as <tt class="xref py py-meth docutils literal"><span class="pre">BegNI()</span></tt>, that
+                        returns a node iterator.</p>
+                        <p><a class="reference internal"
+                              href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANetNodeI"
+                              title="TNEANetNodeI"><tt class="xref py py-class docutils literal"><span class="pre">TNEANetNodeI</span></tt></a>
+                            provides the following methods:</p>
+                        <blockquote>
+                            <div>
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">Next()</tt></dt>
+                                    <dd><p>Moves the iterator to the next node in the graph.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetId()</tt></dt>
+                                    <dd><p>Returns node ID of the current node.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetDeg()</tt></dt>
+                                    <dd><p>Returns degree of the current node, the sum of in-degree and out-degree.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetInDeg()</tt></dt>
+                                    <dd><p>Returns in-degree of the current node.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetOutDeg()</tt></dt>
+                                    <dd><p>Returns out-degree of the current node.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetInNId(NodeN)</tt></dt>
+                                    <dd><p>Returns ID of <em>NodeN</em>-th in-node (the node pointing to the current
+                                        node).</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetOutNId(NodeN)</tt></dt>
+                                    <dd><p>Returns ID of <em>NodeN</em>-th out-node (the node the current node points
+                                        to).</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetNbrNId(NodeN)</tt></dt>
+                                    <dd><p>Returns ID of <em>NodeN</em>-th neighboring node.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">IsInNId(NId)</tt></dt>
+                                    <dd><p>Tests whether node with ID <em>NId</em> points to the current node.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">IsOutNId(NId)</tt></dt>
+                                    <dd><p>Tests whether the current node points to node with ID <em>NId</em>.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">IsNbrNId(NId)</tt></dt>
+                                    <dd><p>Tests whether node with ID <em>NId</em> is a neighbor of the current node.
+                                    </p>
+                                    </dd>
+                                </dl>
+
+                            </div>
+                        </blockquote>
+                    </dd>
+                </dl>
+
+            </div>
+            <div class="section" id="tneanetedgei">
+                <h2>TNEANetEdgeI<a class="headerlink"
+                                   href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#tneanetedgei"
+                                   title="Permalink to this headline">¶</a></h2>
+                <dl class="class">
+                    <dt id="TNEANetEdgeI">
+                        <em class="property">class </em><tt class="descname">TNEANetEdgeI</tt><a class="headerlink"
+                                                                                                 href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANetEdgeI"
+                                                                                                 title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd><p>Returns a new edge iterator for <a class="reference internal"
+                                                              href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet"
+                                                              title="TNEANet"><tt
+                            class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a>.
+                        Normally, these
+                        objects are not created directly,
+                        but obtained via a call to the graph class <a class="reference internal"
+                                                                      href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet"
+                                                                      title="TNEANet"><tt
+                                class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a>
+                        method,
+                        such as <tt class="xref py py-meth docutils literal"><span class="pre">BegEI()</span></tt>, that
+                        returns an edge iterator.</p>
+                        <p><a class="reference internal"
+                              href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANetEdgeI"
+                              title="TNEANetEdgeI"><tt class="xref py py-class docutils literal"><span class="pre">TNEANetEdgeI</span></tt></a>
+                            provides the following methods:</p>
+                        <blockquote>
+                            <div>
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">Next()</tt></dt>
+                                    <dd><p>Moves the iterator to the next edge in the graph.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetId()</tt></dt>
+                                    <dd><p>Returns edge ID.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetSrcNId()</tt></dt>
+                                    <dd><p>Returns the ID of the source node of the edge.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetDstNId()</tt></dt>
+                                    <dd><p>Returns the ID of the destination node of the edge.</p>
+                                    </dd>
+                                </dl>
+
+                            </div>
+                        </blockquote>
+                    </dd>
+                </dl>
+
+            </div>
+            <div class="section" id="tneanetainti-tneanetaflti-tneanetastri">
+                <h2>TNEANetAIntI, TNEANetAFltI, TNEANetAStrI<a class="headerlink"
+                                                               href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#tneanetainti-tneanetaflti-tneanetastri"
+                                                               title="Permalink to this headline">¶</a></h2>
+                <dl class="class">
+                    <dt id="TNEANetAIntI">
+                        <em class="property">class </em><tt class="descname">TNEANetAIntI</tt><a class="headerlink"
+                                                                                                 href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANetAIntI"
+                                                                                                 title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dt id="TNEANetAFltI">
+                        <em class="property">class </em><tt class="descname">TNEANetAFltI</tt><a class="headerlink"
+                                                                                                 href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANetAFltI"
+                                                                                                 title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dt id="TNEANetAStrI">
+                        <em class="property">class </em><tt class="descname">TNEANetAStrI</tt><a class="headerlink"
+                                                                                                 href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANetAStrI"
+                                                                                                 title="Permalink to this definition">¶</a>
+                    </dt>
+                    <dd><p>Returns a new integer, float or string attribute iterator
+                        for <a class="reference internal"
+                               href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet"
+                               title="TNEANet"><tt class="xref py py-class docutils literal"><span
+                                class="pre">TNEANet</span></tt></a>. Normally, these objects are not created directly,
+                        but obtained via a call to the graph class <a class="reference internal"
+                                                                      href="https://snap.stanford.edu/snappy/doc/reference/graphs.html#TNEANet"
+                                                                      title="TNEANet"><tt
+                                class="xref py py-class docutils literal"><span class="pre">TNEANet</span></tt></a>
+                        method,
+                        such as <tt class="xref py py-meth docutils literal"><span class="pre">BegNAIntI()</span></tt>,
+                        which returns an integer node iterator, or
+                        <tt class="xref py py-meth docutils literal"><span class="pre">BegEAFltI()</span></tt>, which
+                        returns a float edge iterator.</p>
+                        <p>Attribute iterators provide the following methods:</p>
+                        <blockquote>
+                            <div>
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">Next()</tt></dt>
+                                    <dd><p>Moves the iterator to the next node or edge in the graph.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">GetDat()</tt></dt>
+                                    <dd><p>Returns an attribute of the node or edge.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="describe">
+                                    <dt>
+                                        <tt class="descname">IsDeleted()</tt></dt>
+                                    <dd><p>Returns true if the attribute has been deleted.</p>
+                                    </dd>
+                                </dl>
+
+                            </div>
+                        </blockquote>
+                    </dd>
+                </dl>
+
+            </div>
+</body>
+</html>
