@@ -9,7 +9,8 @@ import NodeAttribute as NodeA
 import EdgeAttribute as EdgeA
 
 # filename= "../bellydynamic-data/random.graph"
-filename = "../bellydynamic-data/CollegeMsg.txt"
+# filename = "../bellydynamic-data/CollegeMsg.txt"
+filename = "../bellydynamic-data/email-Eu-core-temporal-Dept1.txt"
 
 if __name__ == '__main__':
     graph = MG.MultiGraph()
