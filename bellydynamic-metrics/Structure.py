@@ -41,9 +41,6 @@ class Structure:
         print "Number of nodes in %s: %d" % (graphName, self.G.GetNodes())
         print "Number of edges in %s: %d" % (graphName, self.G.GetEdges())
 
-        # get the number of nodes with degree=7
-        print "Number of nodes with degree=7 in %s: %d" % (graphName, snap.CntDegNodes(self.G, 7))
-
         # get the node id(s) with highest degree
 
         nodeIdMaxDegree = snap.GetMxOutDegNId(self.G)
@@ -65,43 +62,6 @@ class Structure:
         snap.PlotOutDegDistr(self.G, graphName, "Degree Distribution")
         degreeFileName = "outDeg." + graphName + ".png"
         print "Degree distribution of %s is in: %s" % (graphName, degreeFileName)
-
-        # get the approx. diameter with mean and variance of random samples
-        diameters = []
-        diameters.append(snap.GetBfsFullDiam(self.G, 10))
-        print "Approx. diameter in %s with sampling 10 nodes: %f" % (graphName, diameters[0])
-
-        diameters.append(snap.GetBfsFullDiam(self.G, 100))
-        print "Approx. diameter in %s with sampling 100 nodes: %f" % (graphName, diameters[1])
-
-        diameters.append(snap.GetBfsFullDiam(self.G, 1000))
-        print "Approx. diameter in %s with sampling 1000 nodes: %f" % (graphName, diameters[2])
-
-        mean = float(sum(diameters) / len(diameters))
-        variance = 0
-        for i in diameters:
-            variance += (mean - i) ** 2
-        # variance=variance/len(diameters)
-
-        print "Approx. diameter in %s (mean and variance): %f, %f" % (graphName, mean, variance / len(diameters))
-
-        # get the effective approx. diameter with mean and variance of random samples
-        ediameters = []
-        ediameters.append(snap.GetBfsEffDiam(self.G, 10, False))
-        print "Approx. effective diameter in %s with sampling 10 nodes: %f" % (graphName, ediameters[0])
-
-        ediameters.append(snap.GetBfsEffDiam(self.G, 100, False))
-        print "Approx. effective diameter in %s with sampling 100 nodes: %f" % (graphName, ediameters[1])
-
-        ediameters.append(snap.GetBfsEffDiam(self.G, 1000, False))
-        print "Approx. effective diameter in %s with sampling 1000 nodes: %f" % (graphName, ediameters[2])
-
-        emean = float(sum(ediameters) / len(ediameters))
-        evariance = 0
-        for i in ediameters:
-            evariance += (emean - i) ** 2
-        evariance = evariance / len(ediameters)
-        print "Approx. effective diameter in %s (mean and variance): %f, %f" % (graphName, emean, evariance)
 
         # plot shortest path distribution
         snap.PlotShortPathDistr(self.G, graphName, "Shortest Path Distribution")
