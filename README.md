@@ -11,7 +11,7 @@ BellyDynamic: A scalable framework to handle online and offline dynamic graph ob
 
 ## How to run:
 - Install [snap] graph mining library (http://snap.stanford.edu/).
-- Test run: https://github.com/SamTube405/BellyDynamic/wiki/How-to-Use
+- Test run: https://github.com/scorelab/BellyDynamic/wiki/How-to-Use
 
 ## Sponsor:
 Google Summer of Code 2017 | SCoRE 
