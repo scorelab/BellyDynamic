@@ -10,7 +10,6 @@ COPY . .
 
 RUN chmod +x setup.sh; sync; ./setup.sh
 
-
 LABEL multi.org.label-schema.name="BellyDynamic" \
       multi.org.label-schema.description="A scalable framework to handle online and offline dynamic graph objects" \
       multi.org.label-schema.url="https://github.com/scorelab/BellyDynamic/wiki" \
