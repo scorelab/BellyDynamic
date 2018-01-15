@@ -5,7 +5,7 @@ ARG VCS_REF
 WORKDIR /home/BellyDynamic
 COPY . .
 RUN chmod +x setup.sh; sync; ./setup.sh; ./install-snap-python.sh;
-RUN pip install pandas;
+RUN pip install pandas==0.22.0;
 LABEL multi.org.label-schema.name="BellyDynamic" \
       multi.org.label-schema.description="Framework for handling Graphs" \
       multi.org.label-schema.url="https://github.com/scorelab/BellyDynamic/wiki" \
