@@ -8,4 +8,4 @@ cp snap-4.0.0-4.0-centos6.5-x64-py2.6/snap.py ./bellydynamic-adv/;
 cp snap-4.0.0-4.0-centos6.5-x64-py2.6/_snap.so ./bellydynamic-adv/
 chmod +x ./bellydynamic-adv/snap.py;
 chmod +x ./bellydynamic-adv/_snap.so;
-
+pip install pandas;
