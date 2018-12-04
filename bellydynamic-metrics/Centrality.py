@@ -81,31 +81,31 @@ class Centrality:
         return self.graphName + suffix + ".txt"
 
     def genGraphInfoBetweeness(self, centrality):
-        print "\n+++++++++++ %s ++++++++++++" % (centrality)
-        print "Calculating centrality values..."
+        print ("\n+++++++++++ %s ++++++++++++" % (centrality))
+        print ("Calculating centrality values...")
         start_time = time.clock()
         nodesKeyCentrVals = snap.TIntFltH()
         edgesKeyCentrVals = snap.TIntPrFltH()
         snap.GetBetweennessCentr(self.G, nodesKeyCentrVals, edgesKeyCentrVals, 1.0)
-        print "Computation time: %f secs." % (time.clock() - start_time)
+        print ("Computation time: %f secs." % (time.clock() - start_time))
         outputFileName = self.getOutputFileName(centrality)
-        print "Generating the output -> %s" % (outputFileName)
+        print ("Generating the output -> %s" % (outputFileName))
         output, topNodes = self.getHashmapText(nodesKeyCentrVals)
         self.writeOutput(outputFileName, output)
-        print "Top node labels: \n %s" % (topNodes)
+        print ("Top node labels: \n %s" % (topNodes))
 
         return nodesKeyCentrVals
 
     def genGraphInfo(self, centrality, func):
-        print "\n+++++++++++ %s ++++++++++++" % (centrality)
-        print "Calculating centrality values..."
+        print ("\n+++++++++++ %s ++++++++++++" % (centrality))
+        print ("Calculating centrality values...")
         start_time = time.clock()
         nodesKeysCentrVals = self.getCentr(func)
-        print "Computation time: %f secs." % (time.clock() - start_time)
+        print ("Computation time: %f secs." % (time.clock() - start_time))
         outputFileName = self.getOutputFileName(centrality)
-        print "Generating the output -> %s" % (outputFileName)
+        print ("Generating the output -> %s" % (outputFileName))
         output, topNodes = self.getHashmapText(nodesKeysCentrVals)
         self.writeOutput(outputFileName, output)
-        print "Top node labels: \n %s" % (topNodes)
+        print ("Top node labels: \n %s" % (topNodes))
 
         return nodesKeysCentrVals
