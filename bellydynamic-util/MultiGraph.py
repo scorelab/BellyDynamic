@@ -4,7 +4,7 @@ import snap
 
 
 def PrintGStats(s, Graph):
-    print "graph %s, nodes %d, edges %d, empty %s" % (
+    print("graph %s, nodes %d, edges %d, empty %s" % (
         s, Graph.GetNodes(), Graph.GetEdges(),
         "yes" if Graph.Empty() else "no")
 
@@ -69,20 +69,20 @@ class MultiGraph:
         self.G = snap.TNEANet(FIn)
 
     def walkNodes(self):
-        print "Nodes: "
+        print("Nodes:)
         NCount = 0
         NI = self.G.BegNI()
         while NI < self.G.EndNI():
-            print NI.GetId()
+            print(NI.GetId())
             NCount += 1
             NI.Next()
 
     def walkEdges(self):
-        print "Edges: "
+        print("Edges: ")
         ECount = 0
         EI = self.G.BegEI()
         while EI < self.G.EndEI():
-            print EI.GetId()
+            print(EI.GetId())
             ECount += 1
             EI.Next()
 
