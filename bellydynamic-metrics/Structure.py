@@ -14,7 +14,7 @@ class Structure:
         self.G = self.getGraph()
 
     def genGraph(self, nodes):
-        print "Generating random graph..."
+        print("Generating random graph...")
         genFileName = 'random5000by6.txt'
         nodesV = snap.TIntV()
         for i in range(nodes):
@@ -38,8 +38,8 @@ class Structure:
         graphName = self.graphName
 
         # get the number of nodes and edges in the graph
-        print "Number of nodes in %s: %d" % (graphName, self.G.GetNodes())
-        print "Number of edges in %s: %d" % (graphName, self.G.GetEdges())
+        print("Number of nodes in %s: %d" % (graphName, self.G.GetNodes()))
+        print("Number of edges in %s: %d" % (graphName, self.G.GetEdges()))
 
         # get the node id(s) with highest degree
 
@@ -56,22 +56,22 @@ class Structure:
             if (maxDegree == node.GetOutDeg()):
                 nodeIdsMaxDegreeT += str(node.GetId()) + ","
 
-        print "Node id(s) with highest degree in %s: %s" % (graphName, nodeIdsMaxDegreeT)
+        print ("Node id(s) with highest degree in %s: %s" % (graphName, nodeIdsMaxDegreeT))
 
         # plot degree distribution
         snap.PlotOutDegDistr(self.G, graphName, "Degree Distribution")
         degreeFileName = "outDeg." + graphName + ".png"
-        print "Degree distribution of %s is in: %s" % (graphName, degreeFileName)
+        print ("Degree distribution of %s is in: %s" % (graphName, degreeFileName))
 
         # plot shortest path distribution
         snap.PlotShortPathDistr(self.G, graphName, "Shortest Path Distribution")
         shortestPathFileName = "diam." + graphName + ".png"
-        print "Shortest path distribution of %s is in: %s" % (graphName, shortestPathFileName)
+        print ("Shortest path distribution of %s is in: %s" % (graphName, shortestPathFileName))
 
         # get the fraction of nodes in largest cc
-        print "Fraction of nodes in largest connected component in %s: %f" % (graphName, snap.GetMxSccSz(self.G))
+        print ("Fraction of nodes in largest connected component in %s: %f" % (graphName, snap.GetMxSccSz(self.G)))
 
         # plot the component size distribution
         snap.PlotSccDistr(self.G, graphName, "Component size distribution")
         sccFileName = "scc." + graphName + ".png"
-        print "Component size distribution of %s is in: %s" % (graphName, sccFileName)
+        print ("Component size distribution of %s is in: %s" % (graphName, sccFileName))
