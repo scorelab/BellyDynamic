@@ -26,21 +26,21 @@ class NodeAttribute:
             NI = self.G.BegNAIntI(attribute_name)
             while NI < self.G.EndNAIntI(attribute_name):
                 if NI.GetDat() != 0:
-                    print "Attribute: %s, Node: %i, Val: %d" % (attribute_name, NodeId, NI.GetDat())
+                    print("Attribute: %s, Node: %i, Val: %d" % (attribute_name, NodeId, NI.GetDat()))
                 NodeId += 1
                 NI.Next()
         elif attribute_type == 2:
             NI = self.G.BegNAFltI(attribute_name)
             while NI < self.G.EndNAFltI(attribute_name):
                 if NI.GetDat() != 0:
-                    print "Attribute: %s, Node: %i, Val: %f" % (attribute_name, NodeId, NI.GetDat())
+                    print("Attribute: %s, Node: %i, Val: %f" % (attribute_name, NodeId, NI.GetDat()))
                 NodeId += 1
                 NI.Next()
         elif attribute_type == 3:
             NI = self.G.BegNAStrI(attribute_name)
             while NI < self.G.EndNAStrI(attribute_name):
                 if NI.GetDat() != "NA":
-                    print "Attribute: %s, Node: %i, Val: %s" % (attribute_name, NodeId, NI.GetDat())
+                    print("Attribute: %s, Node: %i, Val: %s" % (attribute_name, NodeId, NI.GetDat()))
                 NodeId += 1
                 NI.Next()
 
@@ -54,4 +54,4 @@ class NodeAttribute:
         AttrLen = NIdAttrValue.Len()
 
         for i in range(AttrLen):
-            print "Vertical Node: %i, Attr: %s, Val: %s" % (NId, NIdAttrName.GetI(i)(),NIdAttrValue.GetI(i)())
+            print("Vertical Node: %i, Attr: %s, Val: %s" % (NId, NIdAttrName.GetI(i)(),NIdAttrValue.GetI(i)()))
