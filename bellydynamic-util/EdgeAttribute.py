@@ -26,21 +26,21 @@ class EdgeAttribute:
             EI = self.G.BegEAIntI(attribute_name)
             while EI < self.G.EndEAIntI(attribute_name):
                 if EI.GetDat() != 0:
-                    print "Attribute: %s, Edge: %i, Val: %d" % (attribute_name, EdgeId, EI.GetDat())
+                    print("Attribute: %s, Edge: %i, Val: %d" % (attribute_name, EdgeId, EI.GetDat()))
                 EdgeId += 1
                 EI.Next()
         elif attribute_type == 2:
             EI = self.G.BegEAFltI(attribute_name)
             while EI < self.G.EndEAFltI(attribute_name):
                 if EI.GetDat() != 0:
-                    print "Attribute: %s, Edge: %i, Val: %f" % (attribute_name, EdgeId, EI.GetDat())
+                    print("Attribute: %s, Edge: %i, Val: %f" % (attribute_name, EdgeId, EI.GetDat()))
                 EdgeId += 1
                 EI.Next()
         elif attribute_type == 3:
             EI = self.G.BegEAStrI(attribute_name)
             while EI < self.G.EndEAStrI(attribute_name):
                 if EI.GetDat() != "NA":
-                    print "Attribute: %s, Edge: %i, Val: %s" % (attribute_name, EdgeId, EI.GetDat())
+                    print("Attribute: %s, Edge: %i, Val: %s" % (attribute_name, EdgeId, EI.GetDat()))
                 EdgeId += 1
                 EI.Next()
 
@@ -54,4 +54,4 @@ class EdgeAttribute:
         AttrLen = EIdAttrValue.Len()
 
         for i in range(AttrLen):
-            print "Vertical Edge: %i, Attr: %s, Val: %s" % (EId, EIdAttrName.GetI(i)(),EIdAttrValue.GetI(i)())
+            print("Vertical Edge: %i, Attr: %s, Val: %s" % (EId, EIdAttrName.GetI(i)(),EIdAttrValue.GetI(i)()))
